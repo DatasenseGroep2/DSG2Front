@@ -1,0 +1,36 @@
+name: Test Angular app
+
+# Controls when the workflow will run
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      # Checkout repository
+      - uses: actions/checkout@v3
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build
+        run: npm run build
+        
+      #- name: Test
+      #  run: npm run test -- --watch=false --browsers ChromeHeadless
+        
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy_dist
+          path: dist
