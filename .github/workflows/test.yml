@@ -23,5 +23,14 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Test
-        run: npm run test -- --watch=false --browsers ChromeHeadless
+      - name: Build
+        run: npm run build
+        
+      #- name: Test
+      #  run: npm run test -- --watch=false --browsers ChromeHeadless
+        
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy_dist
+          path: dist

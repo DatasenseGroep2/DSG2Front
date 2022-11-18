@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="opened=!opened">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="assets/logo.png">
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list>
+      <mat-list-item>
+        <a routerLink="/home">Home</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/players">Spelers</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a routerLink="/register">Registratie</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
