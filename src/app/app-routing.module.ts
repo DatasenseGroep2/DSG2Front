@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { PlayerComponent } from './components/player/player.component';
-import { PlayersComponent } from './components/players/players.component';
-import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './home/home.component';
+import { PlayersComponent } from './players/players.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -17,9 +16,6 @@ const routes: Routes = [
   },
   {
     path:"register", component:RegisterComponent
-  },
-  {
-    path:"player", component:PlayerComponent
   }
 ];
 

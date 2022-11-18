@@ -1,28 +1,14 @@
-<table mat-table [dataSource]="dataSource">
+<table mat-table [dataSource]="footballers">
     <ng-container matColumnDef="voornaam">
         <th mat-header-cell *matHeaderCellDef> Voornaam </th>
-        <td mat-cell *matCellDef="let element"> {{element.voornaam}} </td>
+        <td mat-cell *matCellDef="let element"> {{footballers.firstname}} </td>
       </ng-container>
     
       <ng-container matColumnDef="achternaam">
         <th mat-header-cell *matHeaderCellDef> Achternaam </th>
-        <td mat-cell *matCellDef="let element"> {{element.achternaam}} </td>
+        <td mat-cell *matCellDef="let element"> {{footballers.lastname}} </td>
       </ng-container>
     
-      <ng-container matColumnDef="positie">
-        <th mat-header-cell *matHeaderCellDef> Positie </th>
-        <td mat-cell *matCellDef="let element"> {{element.positie}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="VO2max">
-        <th mat-header-cell *matHeaderCellDef> VO2max </th>
-        <td mat-cell *matCellDef="let element"> {{element.VO2max}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="max_snelheid">
-        <th mat-header-cell *matHeaderCellDef> Max snelheid </th>
-        <td mat-cell *matCellDef="let element"> {{element.max_snelheid}} </td>
-      </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
