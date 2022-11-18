@@ -1,0 +1,713 @@
+{
+  "id": "95f06078-f0f1-4c88-a229-8debdb7b0bbf",
+  "version": "2.0",
+  "name": "DataSense",
+  "url": "https://www.google.com/",
+  "tests": [{
+    "id": "2c6760ec-755e-4048-a3c5-5183aba52bf1",
+    "name": "Testen Navigatie Home",
+    "commands": [{
+      "id": "8d4b04ca-7350-4703-80ed-24f20247bff9",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/players",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a14c0d1-b31f-40b3-a528-9408de29378c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "81fd6134-9643-477c-a213-a878925373e6",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9365d83b-b6f9-4c3a-827e-25afaebd3d7d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.mat-list-item:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/home')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a742c81-b3e4-404e-8193-f391f817c8bd",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "97460ea0-5edc-4c1c-ac34-64e4b27327ae",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d2144fc8-3406-4015-a996-d67f685d20d1",
+    "name": "Testen Navigatie Spelers",
+    "commands": [{
+      "id": "5061761a-bfc9-4f02-b7a9-24ed05fa637b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "81e9c23b-9c14-465b-860f-09118a1cd834",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07ea3118-fdbb-4fda-948b-8c58e9fb3090",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "163991cd-cdd3-4f00-987d-5ff59d04d5ab",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ff9cbc2-1f4e-4755-bbf5-8f2d5fbd4a1f",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c6ed7d9-c9b4-4c57-98ff-c05df0ebef10",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e67ffa3b-df8a-42fa-a3e2-73591de05bf1",
+    "name": "Testen Navigatie Registratie",
+    "commands": [{
+      "id": "e88ee388-39bf-41f4-afba-cc56be303722",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7b532cc-ddf0-41b2-adfe-894fa4c34814",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b7be569a-2d00-4ddf-b55b-9e815d9bede8",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "12451c84-e8a1-47ec-8f9f-26472b9b2a2a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registratie",
+      "targets": [
+        ["linkText=Registratie", "linkText"],
+        ["css=.mat-list-item:nth-child(3) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Registratie')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//mat-list-item[3]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registratie')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d791ca1-a8b2-4806-9a6a-9c387d83e8cb",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d47a190-673a-4718-aaef-d98d7f7badc4",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7f836da7-0b9f-4ac0-a83f-fa12cd4b7a46",
+    "name": "Testen logo aanwezig home pagina",
+    "commands": [{
+      "id": "9c0e0fd9-afb1-406d-8deb-2303d3d368f5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd2dc07d-15a3-45e9-be99-92af2411ada1",
+      "comment": "Controleren of logo aanwezig is",
+      "command": "verifyElementPresent",
+      "target": "css=img:nth-child(2)",
+      "targets": [
+        ["css=img:nth-child(2)", "css:finder"],
+        ["xpath=//mat-toolbar/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b315d31-a290-4367-bd4a-74d6c6be296b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "684e1050-5c4b-4287-a942-ee4c1c905cd2",
+    "name": "Testen logo aanwezig spelers pagina",
+    "commands": [{
+      "id": "27031893-deeb-4065-85d3-665b6536b204",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "88bf0dbf-031c-44df-9643-c1df0f2a84db",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [
+        ["css=.cdk-focused .mat-icon", "css:finder"],
+        ["xpath=//mat-icon", "xpath:position"],
+        ["xpath=//mat-icon[contains(.,'menu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b65b659-f2d9-494e-b124-3e3855326161",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3fb75b7-df74-4d61-9894-59f70f52606a",
+      "comment": "Controleren of logo aanwezig is",
+      "command": "verifyElementPresent",
+      "target": "css=img:nth-child(2)",
+      "targets": [
+        ["css=img:nth-child(2)", "css:finder"],
+        ["xpath=//mat-toolbar/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c30a4674-f441-4fcd-a421-e77b3c15cbc3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "23bee171-9ee9-47b4-99f2-2beed1d5f4b2",
+    "name": "Testen logo aanwezig registratie pagina",
+    "commands": [{
+      "id": "5fd61cb1-e363-4249-bc4d-a4a954a33869",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ede49d3e-84aa-4d72-8e4a-4683dd023482",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [
+        ["css=.cdk-focused .mat-icon", "css:finder"],
+        ["xpath=//mat-icon", "xpath:position"],
+        ["xpath=//mat-icon[contains(.,'menu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9e50480-d21c-44e2-8e1e-0a45c2c6aea8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registratie",
+      "targets": [
+        ["linkText=Registratie", "linkText"],
+        ["css=.mat-list-item:nth-child(3) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Registratie')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/register')]", "xpath:href"],
+        ["xpath=//mat-list-item[3]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registratie')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "56ed9275-73a7-4e76-b429-1671d18e5b4b",
+      "comment": "Controleren of logo aanwezig is",
+      "command": "verifyElementPresent",
+      "target": "css=img:nth-child(2)",
+      "targets": [
+        ["css=img:nth-child(2)", "css:finder"],
+        ["xpath=//mat-toolbar/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7be43ba7-dc07-42bd-bcf5-e13513c227df",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e26d1256-2361-4f52-9d80-59547e3819a6",
+    "name": "Testen Navigatiebalk aanwezig",
+    "commands": [{
+      "id": "b781e3ad-d534-4a4b-8510-c275d872f433",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ebd8ce21-db78-4339-b295-92883ecc9505",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6815e693-a039-478a-b271-3c38dafaace5",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6ca44a8-9cd2-48ef-864e-2d481aac5243",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "658c8964-65d7-4c39-a430-448f84772c2b",
+    "name": "Testen Spelers pagina Aanvallers",
+    "commands": [{
+      "id": "07ed54b8-cca6-4011-bf3a-5cd5775f6e5d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a15dde88-d087-40d0-8e36-fbfcd3a5de7e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f6e00a4-c7b4-493d-981e-fab857768456",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6cc08fb5-47b6-4a78-8dd0-16bed1018ac6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6ac9dcb-5718-431e-911d-f66965fa0b6e",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9ad4ff11-745d-4137-b275-2e58a7a741de",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a08fcc1e-9f97-4f0b-83f8-510b0817e46c",
+    "name": "Testen Spelers pagina Middenvelders",
+    "commands": [{
+      "id": "ff56b804-e4a8-468d-9d7d-734a1b4b2024",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "004e4b92-de35-440b-ac3b-dac7dabbcb31",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb6e614c-5f9d-4fd7-a90f-36ace4fb8259",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "915d0212-54f5-42e3-980b-6d6465394630",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae91a81e-5177-4c48-8654-18a4815a1213",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f2d6015-7ee3-473d-a749-ba3a0eeb2ded",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "495a6acf-e711-4763-a18d-6748a7abbeeb",
+    "name": "Testen Spelers pagina alle spelers",
+    "commands": [{
+      "id": "8a3a01b7-75cc-40f6-aa32-65e651786df0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dccaf7f0-01cf-4c72-b8a2-9a3932836de0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef82e980-1afd-432d-b489-e0d40f6d72fb",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0be208e-3b92-483b-8a36-0b3d3e83a746",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5b014eb-0f7d-4c00-a50d-8c559dc11f7d",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "108108ad-2848-4e6e-8069-244d7acbb601",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a155fdb7-1416-4e7a-98c4-30c51f70718e",
+    "name": "Testen Spelers pagina Keepers",
+    "commands": [{
+      "id": "faa5260a-e8d2-4441-8f21-8d4a9c8fc12a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74082c0a-c618-4a4a-8c11-18cbe94d8388",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "57aea21e-c3b2-4f78-8399-534d13e41584",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f9a43453-8277-4ca7-afaa-6f486202f6c5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eded03fa-3d32-402b-8d7c-d3319dffe2ab",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a4e0554-cc33-46fd-8610-d2b069698234",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8db3cfae-3ad9-462f-a3d7-45c1d85f9e5d",
+    "name": "Testen Spelers pagina Verdedigers",
+    "commands": [{
+      "id": "3354c620-1dd9-4db7-a75d-c8e13fc963cc",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ff427c1-edc6-4845-a7da-5053caea409e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "797de799-9f63-484f-a541-998d30b61b90",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "909d834e-5b7a-45f1-a42e-d7bd004edf1e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1ab0033-a1fa-4e21-82d8-adc4f7c298c5",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0a31f5e2-e7d0-4d67-957d-ee7c59c305a9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "62b7b36c-b6cb-49df-bed3-a9ef01753c8c",
+    "name": "Testen Coach kan informatie zien van speler",
+    "commands": [{
+      "id": "9aa669df-3906-41ce-881e-dfbc32e97811",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "50a319f5-1d05-417b-8832-d3ef30a97840",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "81b0829b-9646-440d-8ada-475f98965d1c",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f3b83f1-1bdc-4b8f-ba75-99d1075ca038",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de762e21-c4f8-47a0-9d83-7755050ad6fd",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23fd54c2-d2de-4d27-8963-eddd5e329890",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "fd71ee64-9a51-4943-a61a-c260caf8a10b",
+    "name": "Testen Coach kan prestaties zien van speler",
+    "commands": [{
+      "id": "91aaa4e0-3db5-4140-9c8c-98cb3e09cf2a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/home",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17097862-e04b-4583-8470-43dad14a2d04",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mat-icon",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa41cfbf-dce4-42e9-9127-8a9a8e5ec5a5",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e3df865e-cfc8-4144-9674-4182993af092",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Spelers",
+      "targets": [
+        ["linkText=Spelers", "linkText"],
+        ["css=.mat-list-item:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Spelers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/players')]", "xpath:href"],
+        ["xpath=//mat-list-item[2]/span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Spelers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "06e65afa-1a84-4e9e-a5c8-9130846a39b1",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa5ba5ce-2857-408f-9431-1d267cc190be",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a890e401-f445-4483-916c-8460cb8b6559",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": true,
+    "timeout": 300,
+    "tests": ["2c6760ec-755e-4048-a3c5-5183aba52bf1", "e67ffa3b-df8a-42fa-a3e2-73591de05bf1", "d2144fc8-3406-4015-a996-d67f685d20d1"]
+  }],
+  "urls": ["https://www.google.com/"],
+  "plugins": []
+}
