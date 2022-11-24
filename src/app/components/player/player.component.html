@@ -27,7 +27,7 @@
         <span matListItemTitle>Geboortedatum:</span>
         <span matListItemLine>{{footballer.dateOfBirth}}</span>
       </mat-list-item>
-      <mat-list-item>
+      <mat-list-item *ngIf=footballer.length>
         <span matListItemTitle>Lengte:</span>
         <span matListItemLine>{{footballer.length}}cm</span>
       </mat-list-item>
