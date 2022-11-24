@@ -32,3 +32,11 @@
         <span matListItemLine>{{footballer.length}}cm</span>
       </mat-list-item>
   </mat-list>
+  <div style="display: block;">
+    <canvas baseChart width="400" height="400"
+      [type]="'line'"
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend">
+    </canvas>
+  </div>

@@ -21,6 +21,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PlayerComponent } from './components/player/player.component';
 
+
+import { NgChartsModule } from 'ng2-charts';
+
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -50,7 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatMenuModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
