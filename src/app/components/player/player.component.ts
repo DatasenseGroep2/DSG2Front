@@ -51,8 +51,12 @@ export class PlayerComponent implements OnInit {
     this.service.getFootballerWeight(id)
         .subscribe(response => {
           response.forEach(weight => {
-            this.lineChartData.labels?.push(weight.dateOfWeight);
-            this.lineChartData.datasets[0].data.push(weight.weight);
+            if (weight.weight) {
+
+              this.lineChartData.labels?.push(weight.dateOfWeight);
+              this.lineChartData.datasets[0].data.push(weight.weight);
+            }
+          
           })
         });
       
