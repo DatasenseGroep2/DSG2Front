@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { PlayersComponent } from './players/players.component';
+import { PlayersComponent } from './components/players/players.component';
 import { RegisterComponent } from './register/register.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';

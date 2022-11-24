@@ -9,6 +9,7 @@ import { map, tap } from 'rxjs/operators'
   providedIn: 'root'
 })
 export class FootballersService {
+  
   private url = 'http://localhost:8080/footballers'
   constructor(private httpClient: HttpClient) { }
 
@@ -19,5 +20,14 @@ export class FootballersService {
         return data;
       })
     );
+  }
+
+  getFootballer(id: number) {
+    return this.httpClient.get<Footballer>(this.url + "/" + id).pipe(
+      map(data => {
+        console.log(data);
+        return data;
+      })
+    )
   }
 }

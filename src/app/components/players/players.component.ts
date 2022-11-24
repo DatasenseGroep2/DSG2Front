@@ -1,22 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { getMatIconNameNotFoundError } from '@angular/material/icon';
+import { FootballersService } from '../../services/footballers.service';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs'
+import { catchError, tap, map } from 'rxjs/operators'
 
-export interface Players {
-  voornaam: string;
-  achternaam: string;
-  positie: string;
-  VO2max: number;
-  max_snelheid: number;
-}
-
-const PLAYERS_DATE: Players[] = [
-  {voornaam: 'Mimoun', achternaam: "El Asri", positie: "Keeper", VO2max:2 , max_snelheid:12},
-  {voornaam: 'Simon', achternaam: "Bovy", positie: "Bench", VO2max:2 , max_snelheid:12},
-  {voornaam: 'Norbert', achternaam: "Stefanski", positie: "Bench", VO2max:2 , max_snelheid:12},
-  {voornaam: 'Thibau', achternaam: "Sweerts", positie: "Aanvaller", VO2max:2 , max_snelheid:12},
-  {voornaam: 'Mimoun', achternaam: "El Asri", positie: "Keeper", VO2max:2 , max_snelheid:12},
-  {voornaam: 'Mimoun', achternaam: "El Asri", positie: "Keeper", VO2max:2 , max_snelheid:12}
-]
 
 @Component({
   selector: 'app-players',
@@ -24,11 +12,12 @@ const PLAYERS_DATE: Players[] = [
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent implements OnInit {
-  displayedColumns: string[] = ['voornaam', 'achternaam', 'positie', 'VO2max', 'max_snelheid'];
-  dataSource = PLAYERS_DATE;
-  constructor() { }
+  footballers:any;
+  displayedColumns: string[] = ['voornaam', 'achternaam','team', 'positie'];
+  constructor(private service:FootballersService) { }
 
   ngOnInit(): void {
+    this.service.getFootballers().subscribe(response => {this.footballers = response});
   }
 
 }
