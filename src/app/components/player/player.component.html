@@ -1,4 +1,4 @@
-<mat-list>
+<mat-list *ngIf="footballer">
     <mat-list-item>
       <span matListItemTitle>Naam:</span>
       <span matListItemLine>{{footballer.lastname}}</span>
@@ -36,7 +36,8 @@
         <span matListItemLine>{{footballer.dominantFoot}}</span>
       </mat-list-item>
   </mat-list>
-  <div style="display: block;">
+  
+  <div style="display: block;" *ngIf="footballer">
     <canvas baseChart width="400" height="400"
       [type]="'line'"
       [data]="lineChartData"
