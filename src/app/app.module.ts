@@ -12,13 +12,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { PlayersComponent } from './players/players.component';
+import { PlayersComponent } from './components/players/players.component';
 import { RegisterComponent } from './register/register.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
+import { PlayerComponent } from './components/player/player.component';
+
+
+import { NgChartsModule } from 'ng2-charts';
+
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -28,6 +36,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     HomeComponent,
     PlayersComponent,
     RegisterComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +53,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    LayoutModule
+    LayoutModule,
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
