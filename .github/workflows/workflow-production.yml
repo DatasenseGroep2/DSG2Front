@@ -1,0 +1,76 @@
+name: Workflow for master branch
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'actions'
+
+jobs:
+  build:
+    name: Build Angular app
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build
+        run: npm run build
+        
+      #- name: Test
+      #  run: npm run test -- --watch=false --browsers ChromeHeadless
+        
+  push:
+    needs: build
+    name: Push image to ECR
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and push to ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO_NAME }}
+          IMAGE_TAG: DSG2Front
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-${GITHUB_REF##*/} .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-${GITHUB_REF##*/}
+  deploy:
+    needs: push
+    name: Deploy image to EC2
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Execute deploy script on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_PROD }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: sudo ./deploy-frontend.sh
