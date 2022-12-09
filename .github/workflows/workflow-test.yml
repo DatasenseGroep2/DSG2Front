@@ -29,19 +29,35 @@ jobs:
       #- name: Test
       #  run: npm run test -- --watch=false --browsers ChromeHeadless
         
-  scan:
-    name: Scan project
+  push:
+    needs: build
+    name: Push image to ECR
     runs-on: ubuntu-latest
-    
+
+    permissions:
+      id-token: write
+      contents: read
+      
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          fetch-depth: 0
-        
-      - name: Run Sonarscanner
-        uses: sonarsource/sonarqube-scan-action@master
+          role-to-assume: ${{ secrets.AWS_IAM_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build and push to ECR
+        id: build-image
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO_NAME }}
+          IMAGE_TAG: DSG2Front
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-${GITHUB_REF##*/} .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-${GITHUB_REF##*/}
