@@ -1,20 +1,21 @@
 <table mat-table [dataSource]="footballers">
-    <ng-container matColumnDef="voornaam">
-        <th mat-header-cell *matHeaderCellDef> Voornaam </th>
-        <td mat-cell *matCellDef="let footballer"> {{ footballer.firstname }} </td>
-      </ng-container>
-      <ng-container matColumnDef="achternaam">
-        <th mat-header-cell *matHeaderCellDef> Achternaam </th>
-        <td mat-cell *matCellDef="let footballer"> {{ footballer.lastname }} </td>
-      </ng-container>
-      <ng-container matColumnDef="team">
-        <th mat-header-cell *matHeaderCellDef> Team </th>
-        <td mat-cell *matCellDef="let footballer"> {{ footballer.team }} </td>
-      </ng-container>
-      <ng-container matColumnDef="positie">
-        <th mat-header-cell *matHeaderCellDef> Positie </th>
-        <td mat-cell *matCellDef="let footballer"> {{ footballer.position }} </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let footballer; columns: displayedColumns;" routerLink="/player/{{footballer.footballerId}}"></tr>
+  <ng-container matColumnDef="voornaam">
+    <th mat-header-cell *matHeaderCellDef> Voornaam </th>
+    <td mat-cell *matCellDef="let footballer"> {{ footballer.firstname }} </td>
+  </ng-container>
+  <ng-container matColumnDef="achternaam">
+    <th mat-header-cell *matHeaderCellDef> Achternaam </th>
+    <td mat-cell *matCellDef="let footballer"> {{ footballer.lastname }} </td>
+  </ng-container>
+  <ng-container matColumnDef="team">
+    <th mat-header-cell *matHeaderCellDef> Team </th>
+    <td mat-cell *matCellDef="let footballer"> {{ footballer.team }} </td>
+  </ng-container>
+  <ng-container matColumnDef="positie">
+    <th mat-header-cell *matHeaderCellDef> Positie </th>
+    <td mat-cell *matCellDef="let footballer"> {{ footballer.position }} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let footballer; columns: displayedColumns;" routerLink="/player/{{footballer.footballerId}}">
+  </tr>
 </table>

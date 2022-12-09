@@ -1,13 +1,41 @@
-mat-sidenav-container{
+mat-sidenav-container {
     height: calc(205vh - 115vh);
 }
 
-mat-sidenav{
+mat-sidenav {
     width: 200px;
-    background-color: #eee;
+    background-color: #3b4953;
 }
 
-img{
-    width: 100px;
-    height: 100px;
+mat-toolbar {
+    background-color: #3b4953;
+}
+
+mat-icon {
+    color: #fff;
+}
+
+mat-list-item {
+    background-color: #3b4953;
+}
+
+mat-list-item:hover {
+    background-color: #1d2429;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
