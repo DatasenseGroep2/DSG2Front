@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - 'development'
-      - 'actions'
 
 jobs:
   build:
+    name: Build Angular app
     runs-on: ubuntu-latest
 
     steps:
