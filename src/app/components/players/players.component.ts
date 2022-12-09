@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getMatIconNameNotFoundError } from '@angular/material/icon';
 import { FootballersService } from '../../services/footballers.service';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs'
-import { catchError, tap, map } from 'rxjs/operators'
 
 
 @Component({

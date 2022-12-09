@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Footballer } from '../models/footballer.model';
-import { map, tap } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 import { Weight } from '../models/weight.model';
 
 

@@ -15,7 +15,7 @@ export class Footballer {
     {
         this.footballerId = footballerId;
         this.firstName = firstName;
-        this.lastName = lastName,
+        this.lastName = lastName;
         this.gender = gender;
         this.team = team;
         this.position = position;

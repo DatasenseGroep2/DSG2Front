@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FootballersService } from 'src/app/services/footballers.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
+import { ChartConfiguration, ChartOptions } from "chart.js";
 
 
 @Component({
