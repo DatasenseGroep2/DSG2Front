@@ -3,7 +3,7 @@ import { FootballersService } from 'src/app/services/footballers.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ChartConfiguration, ChartOptions } from "chart.js";
-
+import { Weight } from 'src/app/models/weight.model';
 
 @Component({
   selector: 'app-player',
@@ -13,7 +13,6 @@ import { ChartConfiguration, ChartOptions } from "chart.js";
 export class PlayerComponent implements OnInit {
   footballer:any;
   weight:any;
-
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
     datasets: [
@@ -35,7 +34,6 @@ export class PlayerComponent implements OnInit {
     private route: ActivatedRoute,
     private service:FootballersService,
     private location: Location) { }
-
   ngOnInit(): void {
     this.getFootballer();
     this.getFootballerWeight();
@@ -45,14 +43,12 @@ export class PlayerComponent implements OnInit {
     (this.service.getFootballer(id))
         .subscribe(response =>this.footballer = response);
   }
-
   getFootballerWeight() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getFootballerWeight(id)
-        .subscribe(response => {
+        .subscribe((response: Weight[]) => { // Use Weight as the type of the response parameter
           response.forEach(weight => {
             if (weight.weight) {
-
               this.lineChartData.labels?.push(weight.dateOfWeight);
               this.lineChartData.datasets[0].data.push(weight.weight);
             }
@@ -61,5 +57,4 @@ export class PlayerComponent implements OnInit {
         });
       
   }
-
 }
