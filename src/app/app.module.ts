@@ -26,6 +26,7 @@ import { NgChartsModule } from 'ng2-charts';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -55,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     LayoutModule,
     HttpClientModule,
+    FormsModule,
     NgChartsModule
   ],
   providers: [],

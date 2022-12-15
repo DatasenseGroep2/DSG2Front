@@ -40,9 +40,29 @@
       <span matListItemLine>{{footballer.dominantFoot}}</span>
     </mat-list-item>
   </mat-list>
-</div>
-<div id="right-side-content" style="display: block;" *ngIf="footballer">
-  <canvas baseChart width="400" height="400" [type]="'line'" [data]="lineChartData" [options]="lineChartOptions"
-    [legend]="lineChartLegend">
-  </canvas>
-</div>
+  
+  <div style="display: block;" *ngIf="footballer">
+    <canvas baseChart width="400" height="400"
+      [type]="'line'"
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend">
+    </canvas>
+  </div>
+
+  <mat-form-field appearance="fill" >
+    <mat-label>Select an option</mat-label>
+    <mat-select [(ngModel)]="selectedValue" (valueChange)="setSelectedObject()">
+      <mat-option *ngFor="let footballerMatch of footballerMatches" [value]="footballerMatch.dateOfMatch"> 
+        {{footballerMatch.dateOfMatch}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <p *ngIf="selectedObject">
+    You selected: {{selectedObject.dateOfMatch}}<br>
+    Tegenspeler: {{selectedObject.opponent}}<br>
+    Score: {{selectedObject.score}} : {{selectedObject.opponentScore}}<br>
+    Gele Kaarten voor  {{footballer.firstname}} {{footballer.lastname}} : {{selectedObject.yellowCards}}<br>
+    Rode Kaart : {{selectedObject.redCard}}
+  </p>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Footballer } from '../models/footballer.model';
 import { map, tap } from 'rxjs/operators'
 import { Weight } from '../models/weight.model';
+import { FootballerMatch } from '../models/footballer-match.model';
 
 
 @Injectable({
@@ -37,4 +38,15 @@ export class FootballersService {
       })
     )
   }
-}
+
+    getFootballerMatches(id: Number): Observable<FootballerMatch[]> {
+      return this.httpClient.get<FootballerMatch[]>("http://localhost:8080/footballerMatch/" + id).pipe(
+        map(data => {
+          return data;
+          console.log(data);
+        })
+      )
+    }
+  }
+
+

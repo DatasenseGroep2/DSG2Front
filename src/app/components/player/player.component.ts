@@ -13,6 +13,10 @@ import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
 export class PlayerComponent implements OnInit {
   footballer:any;
   weight:any;
+  footballerMatches:any;
+  selectedValue: any;
+  selectedObject: any;
+  match: any;
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
@@ -39,6 +43,7 @@ export class PlayerComponent implements OnInit {
   ngOnInit(): void {
     this.getFootballer();
     this.getFootballerWeight();
+    this.getFootballerMatch();
   }
   getFootballer() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -62,4 +67,14 @@ export class PlayerComponent implements OnInit {
       
   }
 
+  getFootballerMatch(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    (this.service.getFootballerMatches(id))
+        .subscribe(response => this.footballerMatches = response);
+  }
+
+  setSelectedObject(){
+    this.selectedObject = this.footballerMatches.find((match: { dateOfMatch: Date; }) => match.dateOfMatch == this.selectedValue);
+    console.log(this.selectedObject);
+  }
 }
