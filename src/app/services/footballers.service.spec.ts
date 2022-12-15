@@ -7,7 +7,7 @@ import { Weight } from '../models/weight.model';
 describe('FootballersService', () => {
   let service: FootballersService;
   let httpMock: HttpTestingController;
-  let url = 'http://localhost:8080/footballers';
+  let url = 'http://13.41.215.220:8080/footballers';
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
