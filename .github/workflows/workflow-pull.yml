@@ -1,9 +1,11 @@
-name: Workflow for development branch
+name: Workflow for pull requests
 
 on:
-  push:
+  pull_request:
     branches:
       - 'development'
+      - 'test'
+      - 'master'
 
 jobs:
   build:
