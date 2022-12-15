@@ -10,11 +10,11 @@ import { Weight } from '../models/weight.model';
   providedIn: 'root'
 })
 export class FootballersService {
-  
-  private url = 'http://localhost:8080/footballers'
+
+  private url = 'http://13.41.215.220:8080/footballers'
   constructor(private httpClient: HttpClient) { }
 
-  getFootballers(): Observable<Footballer[]>{
+  getFootballers(): Observable<Footballer[]> {
     return this.httpClient.get<Footballer[]>(this.url).pipe(
       map(data => {
         return data;
