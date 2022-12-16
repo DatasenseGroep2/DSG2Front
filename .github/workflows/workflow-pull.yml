@@ -27,8 +27,8 @@ jobs:
       - name: Build
         run: npm run build
         
-      #- name: Test
-      #  run: npm run test -- --watch=false --browsers ChromeHeadless
+      - name: Test
+        run: npm run test -- --watch=false --browsers ChromeHeadless
         
   scan:
     name: Scan project
