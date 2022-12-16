@@ -1,48 +1,55 @@
 <div id="left-side-content">
   <mat-list *ngIf="footballer">
     <mat-list-item>
-      <img src="../../../assets/placeholder.jpg" />
+      <img src="../../../assets/placeholder.jpg" alt="Picture of footballer" />
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Naam:</span>
-      <span matListItemLine>{{footballer.lastname}}</span>
+      <span matListItemLine>{{ footballer.lastname }}</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Voornaam:</span>
-      <span matListItemLine>{{footballer.firstname}}</span>
+      <span matListItemLine>{{ footballer.firstname }}</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Positie:</span>
-      <span matListItemLine>{{footballer.position}}</span>
+      <span matListItemLine>{{ footballer.position }}</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Geslacht:</span>
-      <span matListItemLine>{{footballer.gender}}</span>
+      <span matListItemLine>{{ footballer.gender }}</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Team:</span>
-      <span matListItemLine>{{footballer.team}}</span>
+      <span matListItemLine>{{ footballer.team }}</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Status:</span>
-      <span matListItemLine>{{footballer.playerStatus}}</span>
+      <span matListItemLine>{{ footballer.playerStatus }}</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Geboortedatum:</span>
-      <span matListItemLine>{{footballer.dateOfBirth}}</span>
+      <span matListItemLine>{{ footballer.dateOfBirth }}</span>
     </mat-list-item>
-    <mat-list-item *ngIf=footballer.length>
+    <mat-list-item *ngIf="footballer.length">
       <span matListItemTitle>Lengte:</span>
-      <span matListItemLine>{{footballer.length}}cm</span>
+      <span matListItemLine>{{ footballer.length }}cm</span>
     </mat-list-item>
     <mat-list-item>
       <span matListItemTitle>Dominante Voet:</span>
-      <span matListItemLine>{{footballer.dominantFoot}}</span>
+      <span matListItemLine>{{ footballer.dominantFoot }}</span>
     </mat-list-item>
   </mat-list>
 </div>
-<div id="right-side-content" style="display: block;" *ngIf="footballer">
-  <canvas baseChart width="400" height="400" [type]="'line'" [data]="lineChartData" [options]="lineChartOptions"
-    [legend]="lineChartLegend">
+<div id="right-side-content" style="display: block" *ngIf="footballer">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [type]="'line'"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [legend]="lineChartLegend"
+  >
   </canvas>
 </div>
