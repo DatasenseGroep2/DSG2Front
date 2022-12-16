@@ -6,21 +6,25 @@ import { PlayerComponent } from './components/player/player.component';
 
 const routes: Routes = [
   {
-    path:"home", component:HomeComponent
+    path: 'home',
+    component: HomeComponent,
   },
   {
-    path:"", component:HomeComponent
+    path: '',
+    component: HomeComponent,
   },
   {
-    path:"players", component:PlayersComponent
+    path: 'players',
+    component: PlayersComponent,
   },
   {
-    path:"player/:id", component:PlayerComponent
-  }
+    path: 'player/:id',
+    component: PlayerComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

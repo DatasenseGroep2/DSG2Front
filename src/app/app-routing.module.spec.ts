@@ -11,10 +11,7 @@ describe('AppRoutingModule', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AppRoutingModule,
-        RouterTestingModule.withRoutes([])
-      ]
+      imports: [AppRoutingModule, RouterTestingModule.withRoutes([])],
     });
 
     router = TestBed.get(Router);
@@ -26,10 +23,16 @@ describe('AppRoutingModule', () => {
   });
 
   it('should have a route for the players page', () => {
-    expect(router.config).toContain({ path: 'players', component: PlayersComponent });
+    expect(router.config).toContain({
+      path: 'players',
+      component: PlayersComponent,
+    });
   });
 
   it('should have a route for the player page', () => {
-    expect(router.config).toContain({ path: 'player/:id', component: PlayerComponent });
+    expect(router.config).toContain({
+      path: 'player/:id',
+      component: PlayerComponent,
+    });
   });
 });

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeightService {
-  private url = 'http://localhost:8080/footballers/{id}/weight'
+  private url = 'http://localhost:8080/footballers/{id}/weight';
 }

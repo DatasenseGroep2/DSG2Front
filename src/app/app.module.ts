@@ -19,21 +19,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PlayerComponent } from './components/player/player.component';
 
-
 import { NgChartsModule } from 'ng2-charts';
 
-
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PlayersComponent,
-    PlayerComponent
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +46,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     LayoutModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
