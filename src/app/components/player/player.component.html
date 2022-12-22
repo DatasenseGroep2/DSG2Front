@@ -62,6 +62,10 @@
   </mat-form-field>
 
   <table id="matchinfo" *ngIf="selectedObject">
+    <caption>
+      Match info
+    </caption>
+    <th></th>
     <tr>
       <td>Match datum</td>
       <td *ngIf="selectedObject">{{ selectedObject.dateOfMatch }}</td>
