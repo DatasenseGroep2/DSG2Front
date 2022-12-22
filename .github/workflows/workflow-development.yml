@@ -1,9 +1,9 @@
-name: Workflow for master branch
+name: Workflow for test branch
 
 on:
   push:
     branches:
-      - 'master'
+      - 'development'
 
 jobs:
   build:
@@ -96,7 +96,7 @@ jobs:
         
       - name: Upload to s3
         run: aws s3 sync . ${{ secrets.S3_BUCKET_URI }} --exclude "*" --include "*.zip"
-  
+          
   deploy:
     needs: push
     name: Deploy image to EC2
@@ -106,7 +106,7 @@ jobs:
       - name: Execute deploy script on server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_PROD }}
+          host: ${{ secrets.HOST_DEV }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: sudo ./deploy-frontend.sh

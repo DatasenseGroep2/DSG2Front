@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FootballersService } from 'src/app/services/footballers.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
+import { ChartConfiguration, ChartOptions } from 'chart.js';
+import { Weight } from 'src/app/models/weight.model';
 
 @Component({
   selector: 'app-player',
@@ -17,7 +18,6 @@ export class PlayerComponent implements OnInit {
   selectedObject: any;
   match: any;
   winPercentage: any;
-
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
     datasets: [
@@ -47,6 +47,7 @@ export class PlayerComponent implements OnInit {
     this.getFootballerMatch();
     this.getWinPercentage();
   }
+
   getFootballer() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service
@@ -56,7 +57,7 @@ export class PlayerComponent implements OnInit {
 
   getFootballerWeight() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.service.getFootballerWeight(id).subscribe((response) => {
+    this.service.getFootballerWeight(id).subscribe((response: Weight[]) => {
       response.forEach((weight) => {
         if (weight.weight) {
           this.lineChartData.labels?.push(weight.dateOfWeight);
