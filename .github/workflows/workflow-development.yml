@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'development'
+      - 'actions'
 
 jobs:
   build:
@@ -110,3 +111,23 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: sudo ./deploy-frontend.sh
+
+  selenium:
+    needs: deploy
+    name: Runs Selenium tests on deployed server
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Selenium tests
+        uses: actions/checkout@v3
+        with:
+          repository: 'DatasenseGroep2/selenium-tests'
+          
+      - name: Set up Maven
+        uses: s4u/setup-maven-action@v1
+        with:
+          java-version: '17'
+          maven-version: '3.8.6'
+      
+      - name: Run tests
+        run: mvn test
