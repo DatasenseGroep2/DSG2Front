@@ -24,8 +24,7 @@ describe('PlayerComponent', () => {
       ],
     });
 
-    service = TestBed.get(FootballersService);
-    route = TestBed.get(ActivatedRoute);
+    service = TestBed.inject(FootballersService);
     component = TestBed.createComponent(PlayerComponent).componentInstance;
   });
 

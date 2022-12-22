@@ -5,12 +5,13 @@ import { Footballer } from '../models/footballer.model';
 import { map } from 'rxjs/operators';
 import { Weight } from '../models/weight.model';
 import { FootballerMatch } from '../models/footballer-match.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FootballersService {
-  private url = 'http://13.41.54.157:8080/footballers';
+  private url = environment.apiUrl + 'footballers';
   constructor(private httpClient: HttpClient) {}
 
   getFootballers(): Observable<Footballer[]> {
@@ -39,7 +40,7 @@ export class FootballersService {
 
   getFootballerMatches(id: number): Observable<FootballerMatch[]> {
     return this.httpClient
-      .get<FootballerMatch[]>('http://13.41.54.157:8080/footballerMatch/' + id)
+      .get<FootballerMatch[]>(environment.apiUrl +  "footballerMatch/" + id)
       .pipe(
         map((data) => {
           return data;
