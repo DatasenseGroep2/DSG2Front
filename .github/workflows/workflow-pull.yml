@@ -28,7 +28,7 @@ jobs:
         run: npm run build
         
       - name: Test
-        run: npm run test -- --watch=false --browsers --code-coverage ChromeHeadless
+        run: npm run test -- --watch=false --browsers ChromeHeadless --code-coverage
         
   scan:
     name: Scan project
