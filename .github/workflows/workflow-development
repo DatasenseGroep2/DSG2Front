@@ -3,7 +3,7 @@ name: Workflow for test branch
 on:
   push:
     branches:
-      - 'test'
+      - 'development'
 
 jobs:
   build:
