@@ -119,7 +119,7 @@ jobs:
     
     steps:
       - name: Checkout Selenium tests
-        run: git clone https://github.com/DatasenseGroep2/selenium-tests.git .
+        run: git clone https://github.com/DatasenseGroep2/selenium-tests.git
           
       - name: Set up Maven
         uses: s4u/setup-maven-action@v1.6.0
@@ -131,4 +131,5 @@ jobs:
         run: ls -l
       
       - name: Run tests
+        working-directory: ./selenium-tests
         run: mvn test
