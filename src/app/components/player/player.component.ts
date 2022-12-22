@@ -75,6 +75,5 @@ export class PlayerComponent implements OnInit {
 
   setSelectedObject(){
     this.selectedObject = this.footballerMatches.find((match: { dateOfMatch: Date; }) => match.dateOfMatch == this.selectedValue);
-    console.log(this.selectedObject);
   }
 }
