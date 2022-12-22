@@ -23,7 +23,7 @@ jobs:
         run: npm install
         
       - name: Build
-        run: npm run build --configuration=development
+        run: npm run build --configuration=test
         
       #- name: Test
       #  run: npm run test -- --watch=false --browsers ChromeHeadless
@@ -83,7 +83,7 @@ jobs:
         run: npm install
         
       - name: Build
-        run: npm run build --configuration=development
+        run: npm run build --configuration=test
         
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
