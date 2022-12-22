@@ -48,6 +48,7 @@ describe('PlayerComponent', () => {
         length: 1.87,
       })
     );
+
     spyOn(service, 'getFootballerWeight').and.returnValue(
       of([
         new Weight(1, 1, 75, new Date(2022, 0o1, 0o1, 23, 59, 59, 0)),
@@ -78,5 +79,71 @@ describe('PlayerComponent', () => {
       new Date(2022, 0o1, 0o3, 23, 59, 59, 0),
     ]);
     expect(component.lineChartData.datasets[0].data).toEqual([75, 76, 77]);
+  });
+
+  it('should have footballer match data on init', () => {
+    spyOn(service, 'getFootballerMatches').and.returnValue(
+      of([
+        {
+          footballerId: 1,
+          matchId: 1,
+          redCard: false,
+          yellowCards: 1,
+          dateOfMatch: new Date(2022, 0o1, 0o4, 23, 59, 59, 0),
+          opponent: 'STVV',
+          opponentScore: 1,
+          score: 1,
+        },
+        {
+          footballerId: 1,
+          matchId: 2,
+          redCard: false,
+          yellowCards: 0,
+          dateOfMatch: new Date(2022, 0o1, 0o5, 23, 59, 59, 0),
+          opponent: 'Genk',
+          opponentScore: 0,
+          score: 3,
+        },
+      ])
+    );
+
+    component.ngOnInit();
+
+    expect(service.getFootballerMatches).toHaveBeenCalledWith(1);
+    expect(component.footballerMatches).toEqual([
+      {
+        footballerId: 1,
+        matchId: 1,
+        redCard: false,
+        yellowCards: 1,
+        dateOfMatch: new Date(2022, 0o1, 0o4, 23, 59, 59, 0),
+        opponent: 'STVV',
+        opponentScore: 1,
+        score: 1,
+      },
+      {
+        footballerId: 1,
+        matchId: 2,
+        redCard: false,
+        yellowCards: 0,
+        dateOfMatch: new Date(2022, 0o1, 0o5, 23, 59, 59, 0),
+        opponent: 'Genk',
+        opponentScore: 0,
+        score: 3,
+      },
+    ]);
+  });
+
+  it('should set selected object when value is set', () => {
+    component.footballerMatches = [
+      { dateOfMatch: '2022-01-01', score: 3, opponentScore: 2 },
+    ];
+    component.selectedValue = '2022-01-01';
+    component.setSelectedObject();
+    expect(component.selectedObject).toEqual({
+      dateOfMatch: '2022-01-01',
+      score: 3,
+      opponentScore: 2,
+    });
   });
 });

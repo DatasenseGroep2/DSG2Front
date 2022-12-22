@@ -37,13 +37,12 @@ export class FootballersService {
     );
   }
 
-  getFootballerMatches(id: Number): Observable<FootballerMatch[]> {
+  getFootballerMatches(id: number): Observable<FootballerMatch[]> {
     return this.httpClient
       .get<FootballerMatch[]>('http://13.41.54.157:8080/footballerMatch/' + id)
       .pipe(
         map((data) => {
           return data;
-          console.log(data);
         })
       );
   }

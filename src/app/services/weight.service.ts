@@ -5,6 +5,4 @@ import { Injectable } from '@angular/core';
 })
 export class WeightService {
   private url = 'http://13.41.54.157:8080/footballers/{id}/weight';
-
-  constructor() {}
 }
