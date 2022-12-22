@@ -6,6 +6,7 @@ span {
 #left-side-content {
     float: left;
     height: 100%;
+    width: 30vw;
     border-right: 2px solid black;
 }
 
@@ -21,3 +22,25 @@ img {
 mat-list-item {
     margin: 10px;
 }
+#right-side-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    left: 10px;
+    width: 70vw;
+    position:relative;
+}
+table {
+    position: relative;
+    left: calc(50% - 50px);
+}
+hr {
+    width: 70vw;
+    margin: 0;
+    overflow: visible;
+    position: absolute;
+    right: -29.67vw;
+}
+
+
+

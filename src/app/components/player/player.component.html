@@ -45,39 +45,63 @@
     </mat-list-item>
   </mat-list>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Select an option</mat-label>
-    <mat-select
-      [(ngModel)]="selectedValue"
-      (selectionChange)="setSelectedObject()"
-    >
-      <mat-option
-        *ngFor="let footballerMatch of footballerMatches"
-        [value]="footballerMatch.dateOfMatch"
-      >
-        {{ footballerMatch.dateOfMatch }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <p *ngIf="selectedObject">
-    You selected: {{ selectedObject.dateOfMatch }}<br />
-    Tegenspeler: {{ selectedObject.opponent }}<br />
-    Score: {{ selectedObject.score }} : {{ selectedObject.opponentScore }}<br />
-    Gele Kaarten voor {{ footballer.firstname }} {{ footballer.lastname }} :
-    {{ selectedObject.yellowCards }}<br />
-    Rode Kaart : {{ selectedObject.redCard }}
-  </p>
+  
 </div>
 <div id="right-side-content" style="display: block" *ngIf="footballer">
-  <canvas
-    baseChart
-    width="400"
-    height="400"
-    [type]="'line'"
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [legend]="lineChartLegend"
-  >
-  </canvas>
+      <mat-form-field appearance="fill">
+        <mat-label>Select an option</mat-label>
+        <mat-select
+          [(ngModel)]="selectedValue"
+          (selectionChange)="setSelectedObject()"
+        >
+          <mat-option
+            *ngFor="let footballerMatch of footballerMatches"
+            [value]="footballerMatch.dateOfMatch"
+          >
+            {{ footballerMatch.dateOfMatch }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <table id="matchinfo">
+        <tr>
+          <td>Match datum</td>
+          <td *ngIf="selectedObject">{{ selectedObject.dateOfMatch }}</td>
+          <td *ngIf="!selectedObject">x</td>
+        </tr>
+        <tr>
+          <td>Tegenspeler</td>
+          <td *ngIf="selectedObject">{{ selectedObject.opponent }}</td>
+          <td *ngIf="!selectedObject">x</td>
+        </tr>
+        <tr>
+          <td>Score</td>
+          <td *ngIf="selectedObject">{{ selectedObject.score }} : {{ selectedObject.opponentScore }}</td>
+          <td *ngIf="!selectedObject">x</td>
+        </tr>
+        <tr >
+          <td *ngIf="!selectedObject">Gele Kaarten</td>
+          <td *ngIf="selectedObject"> Gele Kaarten voor {{ footballer.firstname }} {{ footballer.lastname }}</td>
+          <td *ngIf="selectedObject">{{ selectedObject.yellowCards }}</td>
+          <td *ngIf="!selectedObject">x</td>
+        </tr>
+        <tr >
+          <td>Rode Kaart</td>
+          <td *ngIf="selectedObject">{{ selectedObject.redCard }}</td>
+          <td *ngIf="!selectedObject">x</td>
+        </tr>
+      </table>
+      <hr />
+      <canvas
+      baseChart
+      width="400"
+      height="400"
+      [type]="'line'"
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend">
+      </canvas>
+   
+
+    
 </div>
