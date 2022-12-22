@@ -119,9 +119,7 @@ jobs:
     
     steps:
       - name: Checkout Selenium tests
-        uses: actions/checkout@v3
-        with:
-          repository: 'DatasenseGroep2/selenium-tests'
+        run: git clone https://github.com/DatasenseGroep2/selenium-tests.git .
           
       - name: Set up Maven
         uses: s4u/setup-maven-action@v1.6.0
