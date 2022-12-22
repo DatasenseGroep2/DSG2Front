@@ -18,6 +18,7 @@ export class PlayerComponent implements OnInit {
   selectedObject: any;
   match: any;
   winPercentage: any;
+
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
     datasets: [
@@ -54,10 +55,10 @@ export class PlayerComponent implements OnInit {
       .getFootballer(id)
       .subscribe((response) => (this.footballer = response));
   }
-
   getFootballerWeight() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getFootballerWeight(id).subscribe((response: Weight[]) => {
+      // Use Weight as the type of the response parameter
       response.forEach((weight) => {
         if (weight.weight) {
           this.lineChartData.labels?.push(weight.dateOfWeight);
