@@ -14,7 +14,7 @@ describe('AppRoutingModule', () => {
       imports: [AppRoutingModule, RouterTestingModule.withRoutes([])],
     });
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
   });
 
   it('should have a route for the home page', () => {

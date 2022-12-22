@@ -4,21 +4,20 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { FootballersService } from './footballers.service';
-import { Footballer } from '../models/footballer.model';
-import { Weight } from '../models/weight.model';
+import { environment } from '../../environments/environment';
 
 describe('FootballersService', () => {
   let service: FootballersService;
   let httpMock: HttpTestingController;
-  let url = 'http://13.41.54.157:8080';
+  let url = environment.apiUrl;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [FootballersService],
     });
 
-    service = TestBed.get(FootballersService);
-    httpMock = TestBed.get(HttpTestingController);
+    service = TestBed.inject(FootballersService);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   afterEach(() => {
@@ -57,7 +56,7 @@ describe('FootballersService', () => {
       expect(footballers).toEqual(expectedFootballers);
     });
 
-    const req = httpMock.expectOne(url + '/footballers');
+    const req = httpMock.expectOne(url + 'footballers');
     expect(req.request.method).toBe('GET');
     req.flush(expectedFootballers);
   });
@@ -79,7 +78,7 @@ describe('FootballersService', () => {
       expect(footballer).toEqual(expectedFootballer);
     });
 
-    const req = httpMock.expectOne(url + '/footballers/1');
+    const req = httpMock.expectOne(url + 'footballers/1');
     expect(req.request.method).toBe('GET');
     req.flush(expectedFootballer);
   });
@@ -104,7 +103,7 @@ describe('FootballersService', () => {
       expect(weights).toEqual(expectedWeights);
     });
 
-    const req = httpMock.expectOne(url + '/footballers/1/weight');
+    const req = httpMock.expectOne(url + 'footballers/1/weight');
     expect(req.request.method).toBe('GET');
     req.flush(expectedWeights);
   });
@@ -135,7 +134,7 @@ describe('FootballersService', () => {
     service.getFootballerMatches(1).subscribe((footballerMatches) => {
       expect(footballerMatches).toEqual(expectedFootballerMatches);
     });
-    const req = httpMock.expectOne(url + '/footballerMatch/1');
+    const req = httpMock.expectOne(url + 'footballerMatch/1');
     expect(req.request.method).toBe('GET');
     req.flush(expectedFootballerMatches);
   });

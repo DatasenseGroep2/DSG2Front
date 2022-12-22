@@ -25,8 +25,7 @@ describe('PlayersComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(PlayersComponent);
-    service = TestBed.get(FootballersService);
-    route = TestBed.get(ActivatedRoute);
+    service = TestBed.inject(FootballersService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
