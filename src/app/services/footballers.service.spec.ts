@@ -138,4 +138,21 @@ describe('FootballersService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(expectedFootballerMatches);
   });
+
+  it('should get calculations by footballerId', () => {
+    const expectedCalculations = {
+      footballerId: 1,
+      voTwoMax: 14,
+      masHundredProcent: 3,
+      totalDistance: 8,
+      singleDistance: 4,
+    };
+    service.getCalculations(1).subscribe((calculations) => {
+      expect(calculations).toEqual(expectedCalculations);
+    });
+
+    const req = httpMock.expectOne(url + 'footballers/1/calcuations');
+    expect(req.request.method).toBe('GET');
+    req.flush(expectedCalculations);
+  });
 });

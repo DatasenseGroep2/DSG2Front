@@ -145,4 +145,27 @@ describe('PlayerComponent', () => {
       opponentScore: 2,
     });
   });
+
+  it('should get calculations on initialization', () => {
+    spyOn(service, 'getCalculations').and.returnValue(
+      of({
+        footballerId: 1,
+        voTwoMax: 14,
+        masHundredProcent: 3,
+        totalDistance: 7,
+        singleDistance: 3.5,
+      })
+    );
+
+    component.ngOnInit();
+
+    expect(service.getCalculations).toHaveBeenCalledWith(1);
+    expect(component.footballer).toEqual({
+      footballerId: 1,
+      voTwoMax: 14,
+      masHundredProcent: 3,
+      totalDistance: 7,
+      singleDistance: 3.5,
+    });
+  });
 });

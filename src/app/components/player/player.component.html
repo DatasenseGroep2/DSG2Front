@@ -43,6 +43,22 @@
       <span matListItemTitle>Win percentage:</span>
       <span matListItemLine>{{ winPercentage }} %</span>
     </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>VO2MAX:</span>
+      <span matListItemLine>{{ calculations.voTwoMax }}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>MAS100%:</span>
+      <span matListItemLine>{{ calculations.masHundredProcent }}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Totale afstand:</span>
+      <span matListItemLine>{{ calculations.totalDistance }}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Enkele afstand:</span>
+      <span matListItemLine>{{ calculations.singleDistance }}</span>
+    </mat-list-item>
   </mat-list>
 </div>
 <div id="right-side-content" style="display: block" *ngIf="footballer">
