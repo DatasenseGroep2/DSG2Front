@@ -32,7 +32,7 @@ mat-list-item {
 }
 table {
     position: relative;
-    left: calc(50% - 50px);
+    left: calc(35% - 50px);
 }
 hr {
     width: 70vw;

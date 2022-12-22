@@ -63,32 +63,27 @@
         </mat-select>
       </mat-form-field>
 
-      <table id="matchinfo">
+      <table id="matchinfo" *ngIf="selectedObject">
         <tr>
           <td>Match datum</td>
           <td *ngIf="selectedObject">{{ selectedObject.dateOfMatch }}</td>
-          <td *ngIf="!selectedObject">x</td>
         </tr>
         <tr>
           <td>Tegenspeler</td>
           <td *ngIf="selectedObject">{{ selectedObject.opponent }}</td>
-          <td *ngIf="!selectedObject">x</td>
         </tr>
         <tr>
           <td>Score</td>
           <td *ngIf="selectedObject">{{ selectedObject.score }} : {{ selectedObject.opponentScore }}</td>
-          <td *ngIf="!selectedObject">x</td>
+        
         </tr>
         <tr >
-          <td *ngIf="!selectedObject">Gele Kaarten</td>
           <td *ngIf="selectedObject"> Gele Kaarten voor {{ footballer.firstname }} {{ footballer.lastname }}</td>
           <td *ngIf="selectedObject">{{ selectedObject.yellowCards }}</td>
-          <td *ngIf="!selectedObject">x</td>
         </tr>
         <tr >
           <td>Rode Kaart</td>
           <td *ngIf="selectedObject">{{ selectedObject.redCard }}</td>
-          <td *ngIf="!selectedObject">x</td>
         </tr>
       </table>
       <hr />
