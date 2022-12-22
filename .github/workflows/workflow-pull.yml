@@ -1,0 +1,62 @@
+name: Workflow for pull requests
+
+on:
+  pull_request:
+    branches:
+      - 'development'
+      - 'test'
+      - 'master'
+
+jobs:
+  build:
+    name: Build Angular app
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Test
+        run: npm run test -- --watch=false --browsers ChromeHeadless --code-coverage
+        
+  scan:
+    name: Scan project
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Test
+        run: npm run test -- --watch=false --browsers ChromeHeadless --code-coverage
+        
+      - name: Run Sonarscanner
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_ROOT_CERT: ${{ secrets.SONAR_ROOT_CERT }}
