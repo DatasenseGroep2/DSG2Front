@@ -60,6 +60,42 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-${GITHUB_REF##*/} .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG-${GITHUB_REF##*/}
+          
+  archive:
+    needs: build
+    name: Archive artifact to s3
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write
+      contents: read
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ARN_S3 }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          
+      - name: Zip artifact
+        run: zip -r "${GITHUB_REF_NAME}-${GITHUB_SHA}.zip" dist
+        
+      - name: Upload to s3
+        run: aws s3 sync . ${{ secrets.S3_BUCKET_URI }} --exclude "*" --include "*.zip"
 
   deploy:
     needs: push
