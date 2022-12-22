@@ -13,6 +13,12 @@ import { Weight } from 'src/app/models/weight.model';
 export class PlayerComponent implements OnInit {
   footballer: any;
   weight: any;
+  footballerMatches: any;
+  selectedValue: any;
+  selectedObject: any;
+  match: any;
+  winPercentage: any;
+
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
     datasets: [
@@ -35,10 +41,14 @@ export class PlayerComponent implements OnInit {
     private service: FootballersService,
     private location: Location
   ) {}
+
   ngOnInit(): void {
     this.getFootballer();
     this.getFootballerWeight();
+    this.getFootballerMatch();
+    this.getWinPercentage();
   }
+
   getFootballer() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service
@@ -55,6 +65,33 @@ export class PlayerComponent implements OnInit {
           this.lineChartData.datasets[0].data.push(weight.weight);
         }
       });
+    });
+  }
+
+  getFootballerMatch() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.service
+      .getFootballerMatches(id)
+      .subscribe((response) => (this.footballerMatches = response));
+  }
+
+  setSelectedObject() {
+    this.selectedObject = this.footballerMatches.find(
+      (match: { dateOfMatch: Date }) => match.dateOfMatch == this.selectedValue
+    );
+  }
+
+  getWinPercentage() {
+    let count = 0;
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.service.getFootballerMatches(id).subscribe((response) => {
+      response.forEach((footballerMatch) => {
+        if (footballerMatch.score - footballerMatch.opponentScore > 0) {
+          count++;
+        }
+      });
+      this.winPercentage = (count / response.length) * 100;
     });
   }
 }

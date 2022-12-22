@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WeightService {
-  private url = 'http://localhost:8080/footballers/{id}/weight';
+  private url = 'http://13.41.54.157:8080/footballers/{id}/weight';
 }

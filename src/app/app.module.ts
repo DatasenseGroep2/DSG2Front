@@ -22,6 +22,7 @@ import { PlayerComponent } from './components/player/player.component';
 import { NgChartsModule } from 'ng2-charts';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     LayoutModule,
     HttpClientModule,
+    FormsModule,
     NgChartsModule,
   ],
   providers: [],
