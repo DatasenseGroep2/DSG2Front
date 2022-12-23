@@ -147,11 +147,12 @@ describe('FootballersService', () => {
       totalDistance: 8,
       singleDistance: 4,
     };
+
     service.getCalculations(1).subscribe((calculations) => {
       expect(calculations).toEqual(expectedCalculations);
     });
 
-    const req = httpMock.expectOne(url + 'footballers/1/calcuations');
+    const req = httpMock.expectOne(url + 'footballers/1/calculations');
     expect(req.request.method).toBe('GET');
     req.flush(expectedCalculations);
   });

@@ -48,6 +48,7 @@ export class PlayerComponent implements OnInit {
     this.getFootballerWeight();
     this.getFootballerMatch();
     this.getWinPercentage();
+    this.getCalculations();
   }
 
   getFootballer() {

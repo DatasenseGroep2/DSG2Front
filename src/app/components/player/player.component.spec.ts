@@ -160,7 +160,7 @@ describe('PlayerComponent', () => {
     component.ngOnInit();
 
     expect(service.getCalculations).toHaveBeenCalledWith(1);
-    expect(component.footballer).toEqual({
+    expect(component.calculations).toEqual({
       footballerId: 1,
       voTwoMax: 14,
       masHundredProcent: 3,
