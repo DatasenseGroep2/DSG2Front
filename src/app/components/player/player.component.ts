@@ -16,6 +16,7 @@ export class PlayerComponent implements OnInit {
   footballerMatches: any;
   selectedValue: any;
   selectedObject: any;
+  calculations: any;
   match: any;
   winPercentage: any;
 
@@ -47,6 +48,7 @@ export class PlayerComponent implements OnInit {
     this.getFootballerWeight();
     this.getFootballerMatch();
     this.getWinPercentage();
+    this.getCalculations();
   }
 
   getFootballer() {
@@ -55,6 +57,7 @@ export class PlayerComponent implements OnInit {
       .getFootballer(id)
       .subscribe((response) => (this.footballer = response));
   }
+
   getFootballerWeight() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service.getFootballerWeight(id).subscribe((response: Weight[]) => {
@@ -73,6 +76,13 @@ export class PlayerComponent implements OnInit {
     this.service
       .getFootballerMatches(id)
       .subscribe((response) => (this.footballerMatches = response));
+  }
+
+  getCalculations() {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.service
+      .getCalculations(id)
+      .subscribe((response) => (this.calculations = response));
   }
 
   setSelectedObject() {

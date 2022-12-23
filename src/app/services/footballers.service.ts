@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Weight } from '../models/weight.model';
 import { FootballerMatch } from '../models/footballer-match.model';
 import { environment } from '../../environments/environment';
+import { Calculation } from '../models/calculation.model';
 
 @Injectable({
   providedIn: 'root',
@@ -40,7 +41,17 @@ export class FootballersService {
 
   getFootballerMatches(id: number): Observable<FootballerMatch[]> {
     return this.httpClient
-      .get<FootballerMatch[]>(environment.apiUrl +  "footballerMatch/" + id)
+      .get<FootballerMatch[]>(environment.apiUrl + 'footballerMatch/' + id)
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
+
+  getCalculations(id: number): Observable<Calculation> {
+    return this.httpClient
+      .get<Calculation>(this.url + '/' + id + '/calculations')
       .pipe(
         map((data) => {
           return data;
