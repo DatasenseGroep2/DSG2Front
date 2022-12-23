@@ -25,7 +25,26 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Content here</div>
+          <div class="Graph" *ngIf="card.pieChartData"><canvas
+            baseChart
+            width="6"
+            height="6"
+            [type]="'pie'"
+            [data]="card.pieChartData"
+            [options]="card.pieChartOptions"
+          >
+          </canvas>
+        </div>
+        <div class="Graph" *ngIf="card.lineChartData"><canvas
+          baseChart
+          width="6"
+          height="6"
+          [type]="'line'"
+          [data]="card.lineChartData"
+          [options]="card.lineChartOptions"
+        >
+        </canvas>
+      </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

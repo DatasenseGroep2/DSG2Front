@@ -19,3 +19,10 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+.Graph{
+  width: 250px;
+  height: 250px;
+  margin-left: auto;
+  margin-right:auto;
+}
