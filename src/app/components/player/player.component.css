@@ -1,3 +1,46 @@
-span{
+span {
     margin: 20px;
+    width: 90px;
 }
+
+#left-side-content {
+    float: left;
+    height: 100%;
+    width: 30vw;
+    border-right: 2px solid black;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+mat-list-item {
+    margin: 10px;
+}
+#right-side-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    left: 10px;
+    width: 70vw;
+    position:relative;
+}
+table {
+    position: relative;
+    left: calc(35% - 50px);
+}
+hr {
+    width: 70vw;
+    margin: 0;
+    overflow: visible;
+    position: absolute;
+    right: -29.67vw;
+}
+
+
+

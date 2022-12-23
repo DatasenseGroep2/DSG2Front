@@ -1,8 +1,8 @@
 <mat-toolbar>
-    <button mat-icon-button (click)="opened=!opened">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <img src="assets/logo.png">
+  <button mat-icon-button (click)="opened = !opened">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="assets/logo.png" alt="logo" />
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="side">
@@ -12,9 +12,6 @@
       </mat-list-item>
       <mat-list-item>
         <a routerLink="/players">Spelers</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a routerLink="/register">Registratie</a>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
