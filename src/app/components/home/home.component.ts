@@ -22,9 +22,14 @@ export class HomeComponent implements OnInit {
       let wins = 0;
       let losses = 0;
       let draws = 0;
+
       response.forEach((matches) => {
         this.lineChartData.labels?.push(matches.dateOfMatch);
-          this.lineChartData.datasets[0].data.push(matches.score);
+        this.lineChartData.datasets[0].data.push(matches.score);
+
+        this.lineChartData2.labels?.push(matches.dateOfMatch);
+        this.lineChartData2.datasets[0].data.push(matches.opponentScore);
+
         if (matches.score > matches.opponentScore) {
           wins++
         }
@@ -35,6 +40,7 @@ export class HomeComponent implements OnInit {
           draws++
         }
       });
+
       this.pieChartData.datasets[0].data.push(wins, losses, draws);
       this.chart?.forEach((child) => {
         child.chart?.update();
@@ -53,7 +59,7 @@ export class HomeComponent implements OnInit {
     }
   };
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
-    labels: [ [ 'Win' ], [ 'Loss' ], ['Draw']],
+    labels: [ [ 'Overwinning' ], [ 'Verlies' ], ['Gelijkspel']],
     datasets: [ {
       data: [],
       backgroundColor: [
@@ -73,7 +79,7 @@ export class HomeComponent implements OnInit {
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [{
       data: [],
-      label: 'Score',
+      label: 'Doelpunten',
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -94,24 +100,47 @@ export class HomeComponent implements OnInit {
   }
 
   public lineChartType: ChartType = 'line';
+  
+  public lineChartData2: ChartConfiguration['data'] = {
+    datasets: [{
+      data: [],
+      label: 'Tegendoelpunten',
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      fill: 'origin',
+    }],
+    labels: []
+  };
 
+  public lineChartOptions2: ChartConfiguration['options'] = {
+    elements: {
+      line: {
+        tension: 0.5
+      }
+    }
+  }
+
+  public lineChartType2: ChartType = 'line';
+  
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Wins/Losses', cols: 1, rows: 1 , pieChartOptions: this.pieChartOptions, pieChartData: this.pieChartData, pieChartType: this.pieChartType},
-          { title: 'Scores', cols: 1, rows: 1, lineChartOptions: this.lineChartOptions, lineChartData: this.lineChartData, lineChartType: this.lineChartType },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
+          { title: 'Resultaten', cols: 1, rows: 1 , pieChartOptions: this.pieChartOptions, pieChartData: this.pieChartData, pieChartType: this.pieChartType},
+          { title: 'Doelpunten', cols: 1, rows: 1, lineChartOptions: this.lineChartOptions, lineChartData: this.lineChartData, lineChartType: this.lineChartType },
+          { title: 'Tegendoelpunten', cols: 1, rows: 1, lineChartOptions2: this.lineChartOptions2, lineChartData2: this.lineChartData2, lineChartType2: this.lineChartType2 },
         ];
       }
 
       return [
-        { title: 'Wins/Losses', cols: 2, rows: 1, pieChartOptions: this.pieChartOptions, pieChartData: this.pieChartData, pieChartType: this.pieChartType},
-        { title: 'Scores', cols: 1, rows: 1, lineChartOptions: this.lineChartOptions, lineChartData: this.lineChartData, lineChartType: this.lineChartType },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1},
+        { title: 'Resultaten', cols: 2, rows: 1, pieChartOptions: this.pieChartOptions, pieChartData: this.pieChartData, pieChartType: this.pieChartType},
+        { title: 'Doelpunten', cols: 1, rows: 1, lineChartOptions: this.lineChartOptions, lineChartData: this.lineChartData, lineChartType: this.lineChartType },
+        { title: 'Tegendoelpunten', cols: 1, rows: 1, lineChartOptions2: this.lineChartOptions2, lineChartData2: this.lineChartData2, lineChartType2: this.lineChartType2 },
       ];
     })
   );
