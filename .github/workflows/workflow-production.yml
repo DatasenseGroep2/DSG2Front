@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'ipchange'
 
 jobs:
   build:
