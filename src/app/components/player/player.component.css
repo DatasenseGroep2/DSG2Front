@@ -7,7 +7,27 @@ span {
     float: left;
     height: 100%;
     width: 30vw;
-    border-right: 2px solid black;
+}
+
+mat-list {
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    height: auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 4px 8px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+.mat-list-item {
+    height: 50;
+    margin: 10px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img {
@@ -19,27 +39,39 @@ img {
     margin-right: auto;
 }
 
-mat-list-item {
-    margin: 10px;
+.footballer-image {
+    margin-bottom: 30px;
+    margin-top: 0px;
+    height: 60px;
+    border: 0px;
+    box-shadow: none;
 }
+
+
+
 #right-side-content {
     display: flex;
     flex-direction: column;
     padding-top: 10px;
-    left: 10px;
-    width: 70vw;
     position:relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
 }
 table {
     position: relative;
-    left: calc(35% - 50px);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
-hr {
-    width: 70vw;
-    margin: 0;
-    overflow: visible;
-    position: absolute;
-    right: -29.67vw;
+
+mat-form-field {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 

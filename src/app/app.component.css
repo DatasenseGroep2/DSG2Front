@@ -1,14 +1,18 @@
 mat-sidenav-container {
-    height: calc(205vh - 115vh);
+    height: 100%;
 }
 
 mat-sidenav {
     width: 200px;
-    background-color: #3b4953;
+    background-color: #607196;
+}
+
+mat-sidenav-content{
+    background-color: #E8E9ED;
 }
 
 mat-toolbar {
-    background-color: #3b4953;
+    background-color: #607196;
 }
 
 mat-icon {
@@ -16,7 +20,7 @@ mat-icon {
 }
 
 mat-list-item {
-    background-color: #3b4953;
+    background-color: #607196;
 }
 
 mat-list-item:hover {

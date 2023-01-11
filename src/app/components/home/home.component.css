@@ -1,5 +1,7 @@
 .grid-container {
-  margin: 20px;
+  margin: 0px;
+  background-color: #E8E9ED;
+  padding: 20px;
 }
 
 .dashboard-card {

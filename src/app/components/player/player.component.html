@@ -1,6 +1,6 @@
 <div id="left-side-content">
   <mat-list *ngIf="footballer">
-    <mat-list-item>
+    <mat-list-item class="footballer-image">
       <img src="../../../assets/placeholder.jpg" alt="Picture of footballer" />
     </mat-list-item>
     <mat-list-item>
@@ -45,7 +45,7 @@
     </mat-list-item>
   </mat-list>
 </div>
-<div id="right-side-content" style="display: block" *ngIf="footballer">
+<div id="right-side-content" *ngIf="footballer">
   <mat-form-field appearance="fill">
     <mat-label>Select an option</mat-label>
     <mat-select
@@ -91,19 +91,18 @@
       <td *ngIf="selectedObject">{{ selectedObject.redCard }}</td>
     </tr>
   </table>
-
-  <hr />
+  <div id="right-side-content" style="display: block" *ngIf="footballer">
+    <canvas
+      baseChart
+      width="400"
+      height="400"
+      [type]="'line'"
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+    >
+    </canvas>
+  </div>
 </div>
 
-<div id="right-side-content" style="display: block" *ngIf="footballer">
-  <canvas
-    baseChart
-    width="400"
-    height="400"
-    [type]="'line'"
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [legend]="lineChartLegend"
-  >
-  </canvas>
-</div>
+
