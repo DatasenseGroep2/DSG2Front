@@ -38,23 +38,31 @@ export class HomeComponent implements OnInit {
         }
       });
 
-      this.pieChartData.datasets[0].data.push(wins, losses, draws);
+      this.barChartData.datasets[0].data.push(wins, losses, draws);
       this.chart?.forEach((child) => {
         child.chart?.update();
       });
     });
   }
 
-  public pieChartOptions: ChartConfiguration['options'] = {
+  public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     plugins: {
       legend: {
-        display: true,
+        display: false,
         position: 'top',
       },
     },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
   };
-  public pieChartData: ChartData<'pie', number[], string | string[]> = {
+  public barChartData: ChartData<'bar', number[], string | string[]> = {
     labels: [['Overwinning'], ['Verlies'], ['Gelijkspel']],
     datasets: [
       {
@@ -68,18 +76,19 @@ export class HomeComponent implements OnInit {
     ],
   };
 
-  public pieChartType: ChartType = 'pie';
+  public barChartType: ChartType = 'bar';
 
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
       {
         data: [],
         label: 'Doelpunten',
-        backgroundColor: 'rgba(148,159,177,0.2)',
-        borderColor: 'rgba(148,159,177,1)',
-        pointBackgroundColor: 'rgba(148,159,177,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
+        backgroundColor: 'rgba(132, 212, 125)',
+        borderColor: 'rgba(53, 245, 37)',
+        borderWidth: 1,
+        pointBackgroundColor: 'rgba(132, 212, 125)',
+        pointBorderColor: 'rgba(53, 245, 37)',
+        pointHoverBackgroundColor: 'rgba(53, 245, 37)',
         pointHoverBorderColor: 'rgba(148,159,177,0.8)',
         fill: 'origin',
       },
@@ -90,7 +99,21 @@ export class HomeComponent implements OnInit {
   public lineChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {
-        tension: 0.5,
+        tension: 0,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+        position: 'top',
       },
     },
   };
@@ -102,11 +125,12 @@ export class HomeComponent implements OnInit {
       {
         data: [],
         label: 'Tegendoelpunten',
-        backgroundColor: 'rgba(148,159,177,0.2)',
-        borderColor: 'rgba(148,159,177,1)',
-        pointBackgroundColor: 'rgba(148,159,177,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
+        backgroundColor: 'rgba(181, 80, 80)',
+        borderColor: 'rgba(227, 32, 32)',
+        borderWidth: 1,
+        pointBackgroundColor: 'rgba(181, 80, 80)',
+        pointBorderColor: 'rgba(227, 32, 3)',
+        pointHoverBackgroundColor: 'rgba(227, 32, 3)',
         pointHoverBorderColor: 'rgba(148,159,177,0.8)',
         fill: 'origin',
       },
@@ -117,7 +141,21 @@ export class HomeComponent implements OnInit {
   public lineChartOptions2: ChartConfiguration['options'] = {
     elements: {
       line: {
-        tension: 0.5,
+        tension: 0,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+        position: 'top',
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          stepSize: 1,
+        },
       },
     },
   };
@@ -133,9 +171,9 @@ export class HomeComponent implements OnInit {
             title: 'Resultaten',
             cols: 1,
             rows: 1,
-            pieChartOptions: this.pieChartOptions,
-            pieChartData: this.pieChartData,
-            pieChartType: this.pieChartType,
+            barChartOptions: this.barChartOptions,
+            barChartData: this.barChartData,
+            barChartType: this.barChartType,
           },
           {
             title: 'Doelpunten',
@@ -161,9 +199,9 @@ export class HomeComponent implements OnInit {
           title: 'Resultaten',
           cols: 2,
           rows: 1,
-          pieChartOptions: this.pieChartOptions,
-          pieChartData: this.pieChartData,
-          pieChartType: this.pieChartType,
+          barChartOptions: this.barChartOptions,
+          barChartData: this.barChartData,
+          barChartType: this.barChartType,
         },
         {
           title: 'Doelpunten',
