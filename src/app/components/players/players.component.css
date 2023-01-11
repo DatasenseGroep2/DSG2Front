@@ -10,3 +10,7 @@ th {
     font-weight: bold;
     color: black;
 }
+
+.mat-row:hover {
+    background-color: #F4F4F6;
+}
